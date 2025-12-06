@@ -97,13 +97,4 @@ Run:
 
     newman run RestfulBooker_API_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export ./NewmanReports/RestfulBookerReport.html
 
-## Folder Structure
 
-    RestfulBooker-API-Testing/
-    ├── collection/
-    │   └── RestfulBooker_API_Test.postman_collection.json
-    ├── reports/
-    │   └── RestfulBookerReport.html
-    ├── environment/
-    │   └── restful_env.json (optional)
-    └── README.md
