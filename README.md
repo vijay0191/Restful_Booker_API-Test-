@@ -1,123 +1,109 @@
-# Restful_Booker_API-Test
-Restful Booker API – Postman Collection & Newman Setup
+# Restful Booker API -- Postman Collection & Newman Setup
 
-This repository contains a complete Postman collection for testing the Restful-Booker API, including:
+This repository contains a complete Postman collection for testing the
+Restful-Booker API, including:
 
-Authentication (Create Token)
+-   Authentication (Create Token)
+-   Get Booking IDs
+-   Get Booking by ID
+-   Create Booking
+-   Update Booking (PUT)
+-   Partial Update Booking (PATCH)
+-   Delete Booking
 
-Get Booking IDs
+The collection is structured to support both manual execution in Postman
+and automated execution using Newman.
 
-Get Booking by ID
+## About Restful-Booker API
 
-Create Booking
+The Restful-Booker API is a publicly available API used by QA engineers
+for practice.
 
-Update Booking (PUT)
+## Included Files
 
-Partial Update Booking (PATCH)
+  -------------------------------------------------------------------------------------------------
+  File                                             Description
+  ------------------------------------------------ ------------------------------------------------
+  RestfulBooker_API_Test.postman_collection.json   Complete Postman collection with all API
+                                                   requests
 
-Delete Booking
+  README.md                                        Documentation for using the collection
 
-The collection is structured to support both manual execution in Postman and automated execution using Newman.
+  Environment File (optional)                      Can be added on request
 
-🚀 About Restful-Booker API
+  Test Scripts (optional)                          Can be added if required
+  -------------------------------------------------------------------------------------------------
 
-The Restful-Booker API is a publicly available API used by QA engineers for practice.
-Official site: https://restful-booker.herokuapp.com
+## Features Covered
 
-📁 Included Files
-File	Description
-RestfulBooker_API_Test.postman_collection.json	Complete Postman collection with all API requests
-README.md	Documentation for using the collection
-(Optional) Environment File	Can be added on request
-(Optional) Test Scripts	Can be added if required
-📌 Features Covered
-Category	Included Requests
-Authentication	Create Token
-Booking	GET All IDs, GET by ID
-CRUD Operations	Create, Update, Partial Update, Delete
-Negative Tests	Expected error responses supported
-🧪 How to Use in Postman
+  Category          Included Requests
+  ----------------- ----------------------------------------
+  Authentication    Create Token
+  Booking           GET All IDs, GET by ID
+  CRUD Operations   Create, Update, Partial Update, Delete
+  Negative Tests    Expected error responses
 
-Open Postman
+## Sample HTTP Status Code Reference
 
-Click Import
+  -----------------------------------------------------------------------
+  Status Code             Meaning          When You Get It
+  ----------------------- ---------------- ------------------------------
+  200 OK                  Request was      GET booking, PUT, PATCH
+                          successful       
 
-Select RestfulBooker_API_Test.postman_collection.json
+  201 Created             Resource         POST Create Booking
+                          successfully     
+                          created          
 
-Open the collection and run requests manually
+  400 Bad Request         Incorrect input  Wrong body format in
+                          or malformed     POST/PUT/PATCH
+                          JSON             
 
-(Optional) Run the entire collection using Collection Runner
+  401 Unauthorized        Invalid or       Update/Delete without proper
+                          missing token    auth
 
-📘 Sample HTTP Status Code Reference
+  403 Forbidden           Token present    Wrong token value
+                          but no           
+                          permission       
 
-A helpful quick table to understand possible API responses:
+  404 Not Found           Resource does    GET/UPDATE/DELETE with invalid
+                          not exist        ID
 
-Status Code	Meaning	When You Get It
-200 OK	Request was successful	GET booking, PUT, PATCH
-201 Created	Resource successfully created	POST Create Booking
-400 Bad Request	Incorrect input or malformed JSON	Wrong body format in POST/PUT/PATCH
-401 Unauthorized	Invalid or missing token	Update/Delete without proper auth
-403 Forbidden	Token present but no permission	Wrong token value
-404 Not Found	Resource does not exist	GET/UPDATE/DELETE with invalid ID
-500 Internal Server Error	Server crashed or misbehaved	Invalid server response
-🧰 Running Tests with Newman
+  500 Internal Server     Server crashed   Invalid server response
+  Error                   or misbehaved    
+  -----------------------------------------------------------------------
 
-Newman allows you to run your Postman collection from the command line.
+## Running Tests with Newman
 
-Install Newman
-npm install -g newman
+### Install Newman
 
-Run the collection
-newman run RestfulBooker_API_Test.postman_collection.json
+    npm install -g newman
 
-Run with environment file
-newman run RestfulBooker_API_Test.postman_collection.json -e restful_env.json
+### Run the collection
 
-📊 Generate HTML Report with Newman
+    newman run RestfulBooker_API_Test.postman_collection.json
+
+### Run with environment file
+
+    newman run RestfulBooker_API_Test.postman_collection.json -e restful_env.json
+
+## Generate HTML Report with Newman
 
 Install reporter:
 
-npm install -g newman-reporter-htmlextra
+    npm install -g newman-reporter-htmlextra
 
+Run:
 
-Run with HTML report:
+    newman run RestfulBooker_API_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export ./NewmanReports/RestfulBookerReport.html
 
-newman run RestfulBooker_API_Test.postman_collection.json -r htmlextra \
-   --reporter-htmlextra-export ./NewmanReports/RestfulBookerReport.html
+## Folder Structure
 
-
-The report will include:
-
-Full test results
-
-Response bodies
-
-Failures grouped
-
-Execution time
-
-🔧 Folder Structure (Suggested)
-RestfulBooker-API-Testing/
-│
-├── collection/
-│   └── RestfulBooker_API_Test.postman_collection.json
-│
-├── reports/
-│   └── RestfulBookerReport.html
-│
-├── environment/
-│   └── restful_env.json (optional)
-│
-└── README.md
-
-🤝 Contributing
-
-Feel free to suggest additional test scenarios or request:
-
-Environment variables
-
-Pre-request scripts
-
-Automated assertions
-
-More negative test cases
+    RestfulBooker-API-Testing/
+    ├── collection/
+    │   └── RestfulBooker_API_Test.postman_collection.json
+    ├── reports/
+    │   └── RestfulBookerReport.html
+    ├── environment/
+    │   └── restful_env.json (optional)
+    └── README.md
